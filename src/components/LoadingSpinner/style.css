@@ -1,0 +1,16 @@
+/* الأنماط الخاصة بدوار التحميل */
+.spinner {
+  border: 8px solid #f3f3f3; /* لون فاتح للخلفية */
+  border-top: 8px solid #3498db; /* لون أزرق للجزء المتحرك */
+  border-radius: 50%; /* لجعلها دائرة */
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite; /* تطبيق حركة الدوران */
+}
+
+/* تعريف حركة الدوران */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
