@@ -1,0 +1,21 @@
+/* استيراد توجيهات Tailwind CSS الأساسية، المكونات، والأدوات المساعدة */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* استيراد خط Cairo من Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+/* تطبيق خط Cairo على جميع عناصر HTML افتراضيًا */
+body {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* بعض الأنماط الأساسية لضمان أن التطبيق يملأ الشاشة بشكل صحيح */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* لمنع التمرير غير المرغوب فيه */
+}
+
