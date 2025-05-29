@@ -1,0 +1,24 @@
+# تعريف الخدمة كخدمة ويب ثابتة (Static Site)
+services:
+  - type: static_site
+    name: student-competition-app # اسم تطبيقك على Render
+    env: node # تحديد بيئة Node.js
+
+    # أمر البناء الذي سيتم تشغيله لإنشاء ملفات التطبيق (مثل npm run build)
+    buildCommand: npm install && npm run build
+
+    # الدليل الذي يحتوي على الملفات المبنية الجاهزة للنشر (عادةً 'dist' لـ Vite)
+    publishPath: dist
+
+    # متغيرات البيئة التي سيتم استخدامها في وقت البناء ووقت التشغيل
+    # تأكد من إضافة مفاتيح Supabase و Telegram هنا
+    envVars:
+      - key: VITE_SUPABASE_URL
+        value: "https://jnxxjyqjqieauffhvnga.supabase.co" # عنوان Supabase URL الخاص بك
+      - key: VITE_SUPABASE_ANON_KEY
+        value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpueHhqeXFqcWllYXVmZmh2bmdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg0Nzg0OTQsImV4cCI6MjA2NDA1NDQ5NH0.St8R11j2bMNb6GRANtTDOQRAhv3a3WGW8RbJk3_1hRw" # مفتاح Supabase Anon Key الخاص بك
+      - key: VITE_TELEGRAM_BOT_TOKEN
+        value: "YOUR_TELEGRAM_BOT_TOKEN_HERE" # استبدل هذا بالـ Token الخاص ببوت Telegram
+      - key: VITE_TELEGRAM_WEB_APP_URL
+        value: "YOUR_RENDER_APP_URL_HERE" # استبدل هذا بعنوان URL لتطبيقك بعد النشر على Render
+
