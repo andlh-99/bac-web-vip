@@ -1,0 +1,52 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Caches
+.next/
+.nuxt/
+.vite/
+.svelte-kit/
+.parcel-cache/
+.vuepress/.cache/
+.vuepress/.temp/
+.cache/
+.webpack/
+.mf/
+
+# Environments
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.staging.local
+
+# Build output
+dist/
+build/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Other
+coverage/
+*.tgz
+.npm/
+.yarn/
+.pnpm/
+
