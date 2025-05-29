@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import LoadingPage from './pages/LoadingPage';
 import WelcomeTour from './components/WelcomeTour';
-import { AuthProvider, useAuth } from './contexts/AuthContext'; // سنقوم بإنشاء هذا السياق لاحقًا
-import HomePage from './pages/HomePage'; // سنقوم بإنشاء هذه الصفحات لاحقًا
-import CounterPage from './pages/CounterPage'; // سنقوم بإنشاء هذه الصفحات لاحقًا
-import Navbar from './components/Navbar'; // سنقوم بإنشاء هذا المكون لاحقًا
+import { AuthProvider, useAuth } from './contexts/AuthContext'; // استيراد مزود السياق وهوك useAuth
+import HomePage from './pages/HomePage';
+import CounterPage from './pages/CounterPage';
+import Navbar from './components/Navbar';
 
 function AppContent() {
-  const { isLoading, showWelcomeTour, hasVisitedBefore } = useAuth();
+  // استخدام هوك useAuth لجلب حالة المصادقة والتحميل وجولة الترحيب
+  const { isLoading, showWelcomeTour, closeWelcomeTour } = useAuth();
   const [currentPage, setCurrentPage] = useState('home'); // لإدارة التنقل بين الصفحات
 
   // عرض صفحة التحميل إذا كان التطبيق لا يزال يحمل البيانات الأولية
@@ -16,8 +17,9 @@ function AppContent() {
   }
 
   // عرض جولة الترحيب إذا كانت هذه هي الزيارة الأولى للمستخدم
+  // يتم تمرير دالة الإغلاق من السياق
   if (showWelcomeTour) {
-    return <WelcomeTour onClose={() => { /* منطق إغلاق جولة الترحيب */ }} />;
+    return <WelcomeTour isOpen={showWelcomeTour} onClose={closeWelcomeTour} />;
   }
 
   // عرض المحتوى الرئيسي للتطبيق بعد التحميل وجولة الترحيب
